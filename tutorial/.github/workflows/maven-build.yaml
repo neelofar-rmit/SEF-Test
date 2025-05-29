@@ -1,0 +1,20 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  java-test:
+    runs-on: ubuntu-latest
+    steps:
+		-name: check out repo code
+		uses: actions/checkout@v4
+		with: 
+			distribution:  'adapt'
+			java-version: '21'
+     	-name: Run tests
+		run: mvn test
+		
+	another-job:
+		runs-on: ubuntu-latest
+		steps:
+			-name: check our repo code
+			run: ls -la
